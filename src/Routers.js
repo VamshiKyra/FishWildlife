@@ -28,7 +28,6 @@ class Routers extends Component {
           <Header />
           <Search />
 
-          <Result />
           <Footer />
         </div>
       </Router>

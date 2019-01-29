@@ -1,6 +1,15 @@
 import React, { Component } from "react";
 import "./Search.css";
 class Search extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      search: false
+    };
+  }
+  onSeach() {
+    this.setState({ search: true });
+  }
   render() {
     return (
       <div
@@ -8,6 +17,8 @@ class Search extends Component {
         style={{
           display: "flex",
           justifyContent: "center",
+          alignContent: "center",
+          alignItems: "center",
           padding: 40,
           marginLeft: "auto",
           marginRight: "auto",
@@ -218,6 +229,7 @@ class Search extends Component {
                             value="Search"
                             id="ctl00_PageContent_btnSubmitLists"
                             alt="Find Licenses"
+                            onClick={() => this.onSeach()}
                           />
 
                           <input
@@ -226,6 +238,7 @@ class Search extends Component {
                             value="Reset"
                             id="ctl00_PageContent_btnResetLists"
                             alt="Reset Selections"
+                            onClick={() => this.setState({ search: false })}
                           />
                         </td>
                       </tr>
@@ -310,273 +323,278 @@ class Search extends Component {
             Florida Administrative Code
           </a>
         </div>
-        <div>
-          <table
-            cellspacing="0"
-            rules="all"
-            border="1"
-            id="ctl00_PageContent_gvTier"
-          >
-            <tbody>
-              <tr>
-                <th scope="col">
-                  Click on the name to view the license details
-                </th>
-              </tr>
+        {this.state.search && (
+          <div>
+            <table
+              cellspacing="0"
+              rules="all"
+              border="1"
+              id="ctl00_PageContent_gvTier"
+            >
+              <tbody>
+                <tr>
+                  <th scope="col">
+                    Click on the name to view the license details
+                  </th>
+                </tr>
 
-              <tr>
-                <td>
-                  <table style={{ width: "95%" }}>
-                    <tbody>
-                      <tr>
-                        <td>
-                          <b>
-                            <a
-                              name="Boating/Waterways"
-                              href="http://www.google.com"
-                            >
-                              Boating/Waterways
-                            </a>
-                          </b>
-                        </td>
-                        <td align="right">
-                          <a href="http://localhost:56079/LicensePermits.aspx#top">
-                            Top of page
-                          </a>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-
-                  <div>
-                    <table
-                      cellspacing="0"
-                      border="0"
-                      style={{
-                        width: "80%",
-                        paddingLeft: 20,
-                        paddingBottom: 5
-                      }}
-                    >
+                <tr>
+                  <td>
+                    <table style={{ width: "95%" }}>
                       <tbody>
                         <tr>
-                          <th scope="col">&nbsp;</th>
-                          <th scope="col">&nbsp;</th>
-                        </tr>
-
-                        <tr>
-                          <td>&nbsp;</td>
                           <td>
-                            <a
-                              id="ctl00_PageContent_gvTier_ctl02_gvLicensesInTier_ctl02_LinkButton1"
-                              href="http://www.google.com"
-                            >
-                              <b>
-                                <u>Boating Safety Education ID Card</u>
-                              </b>
-                            </a>
-                            <br />
-                            This certifies completion of the educational
-                            requirements for anyone born on or after January 1,
-                            1988 who operates a vessel powered by 10 horsepower
-                            or more must pass an approved boater safety course
-                            and have in his/her possession photographic
-                            identification and a boating safety education
-                            identification card issued by the FWC or temporary
-                            certificate issued by an authorized vendor.
+                            <b>
+                              <a
+                                name="Boating/Waterways"
+                                href="http://www.google.com"
+                              >
+                                Boating/Waterways
+                              </a>
+                            </b>
                           </td>
-                        </tr>
-                        <tr>
-                          <td>&nbsp;</td>
-                          <td>
-                            <a
-                              id="ctl00_PageContent_gvTier_ctl02_gvLicensesInTier_ctl03_LinkButton1"
-                              href="http://www.google.com"
-                            >
-                              <b>
-                                <u>Vessel Registration and Titles</u>
-                              </b>
+                          <td align="right">
+                            <a href="http://localhost:56079/LicensePermits.aspx#top">
+                              Top of page
                             </a>
-                            <br />
-                            Issued by the Department of Highway Safety and Motor
-                            Vehicles (DHSMV) at local tag offices.
                           </td>
                         </tr>
                       </tbody>
                     </table>
-                  </div>
-                </td>
-              </tr>
 
-              <tr>
-                <td>
-                  <table style={{ width: "95%" }}>
-                    <tbody>
-                      <tr>
-                        <td>
-                          <b>
-                            <a
-                              name="Boating/Waterways"
-                              href="http://www.google.com"
-                            >
-                              Boating/Waterways
-                            </a>
-                          </b>
-                        </td>
-                        <td align="right">
-                          <a href="http://localhost:56079/LicensePermits.aspx#top">
-                            Top of page
-                          </a>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
+                    <div>
+                      <table
+                        cellspacing="0"
+                        border="0"
+                        style={{
+                          width: "80%",
+                          paddingLeft: 20,
+                          paddingBottom: 5
+                        }}
+                      >
+                        <tbody>
+                          <tr>
+                            <th scope="col">&nbsp;</th>
+                            <th scope="col">&nbsp;</th>
+                          </tr>
 
-                  <div>
-                    <table
-                      cellspacing="0"
-                      border="0"
-                      style={{
-                        width: "80%",
-                        paddingLeft: 20,
-                        paddingBottom: 5
-                      }}
-                    >
+                          <tr>
+                            <td>&nbsp;</td>
+                            <td>
+                              <a
+                                id="ctl00_PageContent_gvTier_ctl02_gvLicensesInTier_ctl02_LinkButton1"
+                                href="http://www.google.com"
+                              >
+                                <b>
+                                  <u>Boating Safety Education ID Card</u>
+                                </b>
+                              </a>
+                              <br />
+                              This certifies completion of the educational
+                              requirements for anyone born on or after January
+                              1, 1988 who operates a vessel powered by 10
+                              horsepower or more must pass an approved boater
+                              safety course and have in his/her possession
+                              photographic identification and a boating safety
+                              education identification card issued by the FWC or
+                              temporary certificate issued by an authorized
+                              vendor.
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>&nbsp;</td>
+                            <td>
+                              <a
+                                id="ctl00_PageContent_gvTier_ctl02_gvLicensesInTier_ctl03_LinkButton1"
+                                href="http://www.google.com"
+                              >
+                                <b>
+                                  <u>Vessel Registration and Titles</u>
+                                </b>
+                              </a>
+                              <br />
+                              Issued by the Department of Highway Safety and
+                              Motor Vehicles (DHSMV) at local tag offices.
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td>
+                    <table style={{ width: "95%" }}>
                       <tbody>
                         <tr>
-                          <th scope="col">&nbsp;</th>
-                          <th scope="col">&nbsp;</th>
-                        </tr>
-
-                        <tr>
-                          <td>&nbsp;</td>
                           <td>
-                            <a
-                              id="ctl00_PageContent_gvTier_ctl02_gvLicensesInTier_ctl02_LinkButton1"
-                              href="http://www.google.com"
-                            >
-                              <b>
-                                <u>Boating Safety Education ID Card</u>
-                              </b>
-                            </a>
-                            <br />
-                            This certifies completion of the educational
-                            requirements for anyone born on or after January 1,
-                            1988 who operates a vessel powered by 10 horsepower
-                            or more must pass an approved boater safety course
-                            and have in his/her possession photographic
-                            identification and a boating safety education
-                            identification card issued by the FWC or temporary
-                            certificate issued by an authorized vendor.
+                            <b>
+                              <a
+                                name="Boating/Waterways"
+                                href="http://www.google.com"
+                              >
+                                Boating/Waterways
+                              </a>
+                            </b>
                           </td>
-                        </tr>
-                        <tr>
-                          <td>&nbsp;</td>
-                          <td>
-                            <a
-                              id="ctl00_PageContent_gvTier_ctl02_gvLicensesInTier_ctl03_LinkButton1"
-                              href="http://www.google.com"
-                            >
-                              <b>
-                                <u>Vessel Registration and Titles</u>
-                              </b>
+                          <td align="right">
+                            <a href="http://localhost:56079/LicensePermits.aspx#top">
+                              Top of page
                             </a>
-                            <br />
-                            Issued by the Department of Highway Safety and Motor
-                            Vehicles (DHSMV) at local tag offices.
                           </td>
                         </tr>
                       </tbody>
                     </table>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <table style={{ width: "95%" }}>
-                    <tbody>
-                      <tr>
-                        <td>
-                          <b>
-                            <a
-                              name="Boating/Waterways"
-                              href="http://www.google.com"
-                            >
-                              Boating/Waterways
-                            </a>
-                          </b>
-                        </td>
-                        <td align="right">
-                          <a href="http://localhost:56079/LicensePermits.aspx#top">
-                            Top of page
-                          </a>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
 
-                  <div>
-                    <table
-                      cellspacing="0"
-                      border="0"
-                      style={{
-                        width: "80%",
-                        paddingLeft: 20,
-                        paddingBottom: 5
-                      }}
-                    >
+                    <div>
+                      <table
+                        cellspacing="0"
+                        border="0"
+                        style={{
+                          width: "80%",
+                          paddingLeft: 20,
+                          paddingBottom: 5
+                        }}
+                      >
+                        <tbody>
+                          <tr>
+                            <th scope="col">&nbsp;</th>
+                            <th scope="col">&nbsp;</th>
+                          </tr>
+
+                          <tr>
+                            <td>&nbsp;</td>
+                            <td>
+                              <a
+                                id="ctl00_PageContent_gvTier_ctl02_gvLicensesInTier_ctl02_LinkButton1"
+                                href="http://www.google.com"
+                              >
+                                <b>
+                                  <u>Boating Safety Education ID Card</u>
+                                </b>
+                              </a>
+                              <br />
+                              This certifies completion of the educational
+                              requirements for anyone born on or after January
+                              1, 1988 who operates a vessel powered by 10
+                              horsepower or more must pass an approved boater
+                              safety course and have in his/her possession
+                              photographic identification and a boating safety
+                              education identification card issued by the FWC or
+                              temporary certificate issued by an authorized
+                              vendor.
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>&nbsp;</td>
+                            <td>
+                              <a
+                                id="ctl00_PageContent_gvTier_ctl02_gvLicensesInTier_ctl03_LinkButton1"
+                                href="http://www.google.com"
+                              >
+                                <b>
+                                  <u>Vessel Registration and Titles</u>
+                                </b>
+                              </a>
+                              <br />
+                              Issued by the Department of Highway Safety and
+                              Motor Vehicles (DHSMV) at local tag offices.
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <table style={{ width: "95%" }}>
                       <tbody>
                         <tr>
-                          <th scope="col">&nbsp;</th>
-                          <th scope="col">&nbsp;</th>
-                        </tr>
-
-                        <tr>
-                          <td>&nbsp;</td>
                           <td>
-                            <a
-                              id="ctl00_PageContent_gvTier_ctl02_gvLicensesInTier_ctl02_LinkButton1"
-                              href="http://www.google.com"
-                            >
-                              <b>
-                                <u>Boating Safety Education ID Card</u>
-                              </b>
-                            </a>
-                            <br />
-                            This certifies completion of the educational
-                            requirements for anyone born on or after January 1,
-                            1988 who operates a vessel powered by 10 horsepower
-                            or more must pass an approved boater safety course
-                            and have in his/her possession photographic
-                            identification and a boating safety education
-                            identification card issued by the FWC or temporary
-                            certificate issued by an authorized vendor.
+                            <b>
+                              <a
+                                name="Boating/Waterways"
+                                href="http://www.google.com"
+                              >
+                                Boating/Waterways
+                              </a>
+                            </b>
                           </td>
-                        </tr>
-                        <tr>
-                          <td>&nbsp;</td>
-                          <td>
-                            <a
-                              id="ctl00_PageContent_gvTier_ctl02_gvLicensesInTier_ctl03_LinkButton1"
-                              href="http://www.google.com"
-                            >
-                              <b>
-                                <u>Vessel Registration and Titles</u>
-                              </b>
+                          <td align="right">
+                            <a href="http://localhost:56079/LicensePermits.aspx#top">
+                              Top of page
                             </a>
-                            <br />
-                            Issued by the Department of Highway Safety and Motor
-                            Vehicles (DHSMV) at local tag offices.
                           </td>
                         </tr>
                       </tbody>
                     </table>
-                  </div>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+
+                    <div>
+                      <table
+                        cellspacing="0"
+                        border="0"
+                        style={{
+                          width: "80%",
+                          paddingLeft: 20,
+                          paddingBottom: 5
+                        }}
+                      >
+                        <tbody>
+                          <tr>
+                            <th scope="col">&nbsp;</th>
+                            <th scope="col">&nbsp;</th>
+                          </tr>
+
+                          <tr>
+                            <td>&nbsp;</td>
+                            <td>
+                              <a
+                                id="ctl00_PageContent_gvTier_ctl02_gvLicensesInTier_ctl02_LinkButton1"
+                                href="http://www.google.com"
+                              >
+                                <b>
+                                  <u>Boating Safety Education ID Card</u>
+                                </b>
+                              </a>
+                              <br />
+                              This certifies completion of the educational
+                              requirements for anyone born on or after January
+                              1, 1988 who operates a vessel powered by 10
+                              horsepower or more must pass an approved boater
+                              safety course and have in his/her possession
+                              photographic identification and a boating safety
+                              education identification card issued by the FWC or
+                              temporary certificate issued by an authorized
+                              vendor.
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>&nbsp;</td>
+                            <td>
+                              <a
+                                id="ctl00_PageContent_gvTier_ctl02_gvLicensesInTier_ctl03_LinkButton1"
+                                href="http://www.google.com"
+                              >
+                                <b>
+                                  <u>Vessel Registration and Titles</u>
+                                </b>
+                              </a>
+                              <br />
+                              Issued by the Department of Highway Safety and
+                              Motor Vehicles (DHSMV) at local tag offices.
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        )}
       </div>
     );
   }
